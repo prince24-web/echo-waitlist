@@ -124,7 +124,7 @@ export default function EchoLanding() {
             <div className="text-center mb-8">
               <h2 className="text-3xl sm:text-4xl font-bold mb-6">
                 No more blank calendars or 
-                <span className="text-purple-400"> "we're thrilled to announce"</span> posts.
+                <span className="text-purple-400"> &quot;we&rsquo;re thrilled to announce&quot;</span> posts.
               </h2>
               <p className="text-xl text-gray-300 leading-relaxed">
                 Echo helps you automate your launch and build-in-public content without losing your tone. 
