@@ -236,7 +236,7 @@ export default function EchoLanding() {
           ) : (
             <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-2xl p-8 border border-green-500/20">
               <div className="text-4xl mb-4">🎉</div>
-              <h3 className="text-2xl font-bold text-green-400 mb-2">You're in!</h3>
+              <h3 className="text-2xl font-bold text-green-400 mb-2">You&apos;re in!</h3>
               <p className="text-gray-300">We&apos;ll ping you when Echo is ready to make your content legendary.</p>
             </div>
           )}
