@@ -7,32 +7,33 @@ export default function EchoLanding() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
+  // Only run on client side
   useEffect(() => {
-    setIsClient(true);
+    setMounted(true);
   }, []);
 
-const handleSubmit = async () => {
-  if (!email || isSubmitting) return;
+  const handleSubmit = async () => {
+    if (!email || isSubmitting) return;
 
-  setIsSubmitting(true);
+    setIsSubmitting(true);
 
-  try {
-    const { data, error } = await supabase
-      .from('echowaitlist')
-      .insert([{ email }]);
+    try {
+      const { data, error } = await supabase
+        .from('echowaitlist')
+        .insert([{ email }]);
 
-    if (error) throw error;
+      if (error) throw error;
 
-    setIsSubmitted(true);
-    setEmail('');
-  } catch (error) {
-    console.error('❌ Error submitting email:', error.message);
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+      setIsSubmitted(true);
+      setEmail('');
+    } catch (error) {
+      console.error('❌ Error submitting email:', error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const features = [
     {
@@ -85,7 +86,7 @@ const handleSubmit = async () => {
 
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-            Build your startup.
+            BUILD your startup.
             <br />
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
               Let your content echo.
@@ -208,26 +209,17 @@ const handleSubmit = async () => {
             <div className="space-y-6">
               <div className="relative">
                 <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                {isClient ? (
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="your@email.com"
-                    className="w-full pl-12 pr-4 py-4 bg-gray-900/80 border border-gray-700 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
-                  />
-                ) : (
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    className="w-full pl-12 pr-4 py-4 bg-gray-900/80 border border-gray-700 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
-                    disabled
-                  />
-                )}
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  className="w-full pl-12 pr-4 py-4 bg-gray-900/80 border border-gray-700 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
+                />
               </div>
               <button 
                 onClick={handleSubmit}
-                disabled={isSubmitting || !email || !isClient}
+                disabled={isSubmitting || !email || !mounted}
                 className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
