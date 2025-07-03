@@ -95,7 +95,8 @@ export default function EchoLanding() {
 
           {/* Subheadline */}
           <p className="text-xl sm:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Vibe-first marketing automation for founders who post with purpose.
+            Vibe-first marketing automation for founders who post with purpose.<br></br>
+            Like cursor, but for marketing.
           </p>
 
           {/* CTA Button */}
@@ -123,7 +124,7 @@ export default function EchoLanding() {
             <div className="text-center mb-8">
               <h2 className="text-3xl sm:text-4xl font-bold mb-6">
                 No more blank calendars or 
-                <span className="text-purple-400"> "we're thrilled to announce"</span> posts.
+                <span className="text-purple-400"> &quot;we&apos;re thrilled to announce&quot;</span> posts.
               </h2>
               <p className="text-xl text-gray-300 leading-relaxed">
                 Echo helps you automate your launch and build-in-public content without losing your tone. 
@@ -236,7 +237,7 @@ export default function EchoLanding() {
             <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-2xl p-8 border border-green-500/20">
               <div className="text-4xl mb-4">🎉</div>
               <h3 className="text-2xl font-bold text-green-400 mb-2">You're in!</h3>
-              <p className="text-gray-300">We'll ping you when Echo is ready to make your content legendary.</p>
+              <p className="text-gray-300">We&apos;ll ping you when Echo is ready to make your content legendary.</p>
             </div>
           )}
         </div>
